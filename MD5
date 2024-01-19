@@ -1,6 +1,6 @@
-d8974d70c540f6477e278c5f63a1c147 *DESCRIPTION
+859fb3cc13edc7884bc15da82125f2b8 *DESCRIPTION
 efcd1ab00ce69c865d90a17cce9c131b *NAMESPACE
-2c56dd5a8acc759bb2f82d75ff353e56 *NEWS.md
+13744b8361d090373f0b04a6b731650a *NEWS.md
 1009a7b9ead52a76468ad09f21f4f5a6 *R/bsci.ls.r
 b4738b1a5897f56bc789f00ec52b959c *R/bsci.pois.r
 c70d3ddece5a6b98905dfe4c66f7f967 *R/qesci.ls.r
@@ -8,11 +8,11 @@ c70d3ddece5a6b98905dfe4c66f7f967 *R/qesci.ls.r
 aaf2828fbc5d91ea52022cc773c48bbc *R/rqlm.r
 061c202ee9eec8019cd7602ee8920ca5 *data/exdata01.RData
 754769c44b2cb5fb6fb2d4cbc75a37e8 *data/exdata02.RData
-1fbddf6fe334b9919dcfeeef828c3635 *man/bsci.ls.Rd
-e7f05b65ed78817d7b96606bb835ac54 *man/bsci.pois.Rd
+7bfaccce9de11609a5985bd45c4a5cf0 *man/bsci.ls.Rd
+ea3fa2e3b789d72198517d02dff44667 *man/bsci.pois.Rd
 6011375cdf52e5fa4e213e7ccf2b3592 *man/exdata01.Rd
 bd69e8a90c8bdd1f7c137de7c80a852e *man/exdata02.Rd
-bd93f3105de5a7d5068f0b5e9cc12172 *man/qesci.ls.Rd
-40b8eb0fcf963ddfe1da05caf54b7233 *man/qesci.pois.Rd
-3d9c1234b813671fd9200669986637f2 *man/rqlm-package.Rd
-c870054dbd75ceed7063ab1159ec6372 *man/rqlm.Rd
+0c039576c55806d03c2093a41116dc9c *man/qesci.ls.Rd
+95717dcd32c89645f4d8633cb4a4963f *man/qesci.pois.Rd
+aa0e42a1fb4deefa130b60df9728e5ff *man/rqlm-package.Rd
+c310837513d3431cb9a82b0f48be8365 *man/rqlm.Rd

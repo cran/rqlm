@@ -21,9 +21,9 @@ qesci.ls(formula, data, x.name=NULL, cl=0.95, C0=10^-5, digits=4)
 Results of the modified least-squares analyses are presented. Three objects are provided: Results of the modified least-squares regression with the Wald-type approximation by \code{rqlm}, quasi-score confidence interval for the corresponding covariate, and P-value for the quasi-score test of \code{RD=0}.
 }
 \description{
-Recent studies revealed the robust standard error estimates of the modified least-squares regression analysis are generally biased under small or moderate sample settings. To adjust the bias and to provide more accurate confidence intervals, confidence interval and P-value of the test for risk difference by modified least-squares regression are calculated based on the quasi-score test of Noma et al. (2024).}
+Recent studies revealed the robust standard error estimates of the modified least-squares regression analysis are generally biased under small or moderate sample settings. To adjust the bias and to provide more accurate confidence intervals, confidence interval and P-value of the test for risk difference by modified least-squares regression are calculated based on the quasi-score test of Noma and Gosho (2024).}
 \references{
-Noma, H. et al. (2024+). Bootstrap confidence intervals based on quasi-score statistics for the modified Poisson and least-squares regressions to estimate risk ratio and risk difference. Forthcoming.
+Noma, H. and Gosho, M. (2024). Bootstrap confidence intervals based on quasi-likelihood estimating functions for the modified Poisson and least-squares regressions for binary outcomes. Forthcoming.
 }
 \examples{
 data(exdata01)

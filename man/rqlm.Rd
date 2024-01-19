@@ -32,7 +32,7 @@ Modified Poisson and least-squares regression analyses for binary outcomes are p
 \references{
 Cheung, Y. B. (2007). A modified least-squares regression approach to the estimation of risk difference. \emph{American Journal of Epidemiology} \strong{166}, 1337-1344.
 
-Noma, H. et al. (2024+). Bootstrap confidence intervals based on quasi-score statistics for the modified Poisson and least-squares regressions to estimate risk ratio and risk difference. Forthcoming.
+Noma, H. and Gosho, M. (2024). Bootstrap confidence intervals based on quasi-likelihood estimating functions for the modified Poisson and least-squares regressions for binary outcomes. Forthcoming.
 
 White, H. (1982). Maximum likelihood estimation of misspecified models. \emph{Econometrica}, \strong{50}, 1-25.
 

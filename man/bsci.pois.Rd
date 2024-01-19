@@ -28,9 +28,9 @@ bsci.pois(formula, data, x.name=NULL, B=1000, eform=FALSE, cl=0.95, C0=10^-5,
 Results of the modified Poisson analyses are presented. Three objects are provided: Results of the modified Poisson regression with the Wald-type approximation by \code{rqlm}, the bootstrap confidence interval for the corresponding covariate, and P-value for the bootstrap test of \code{RR=1}.
 }
 \description{
-Recent studies revealed the risk ratio estimates and robust standard error estimates of the modified Poisson regression analysis are generally biased under small or moderate sample settings. To adjust the bias and to provide more accurate confidence intervals, confidence interval and P-value of the test for risk ratio by modified Poisson regression are calculated based on the bootstrap approach of Noma et al. (2024).}
+Recent studies revealed the risk ratio estimates and robust standard error estimates of the modified Poisson regression analysis are generally biased under small or moderate sample settings. To adjust the bias and to provide more accurate confidence intervals, confidence interval and P-value of the test for risk ratio by modified Poisson regression are calculated based on the bootstrap approach of Noma and Gosho (2024).}
 \references{
-Noma, H. et al. (2024+). Bootstrap confidence intervals based on quasi-score statistics for the modified Poisson and least-squares regressions to estimate risk ratio and risk difference. Forthcoming.
+Noma, H. and Gosho, M. (2024). Bootstrap confidence intervals based on quasi-likelihood estimating functions for the modified Poisson and least-squares regressions for binary outcomes. Forthcoming.
 }
 \examples{
 data(exdata01)
