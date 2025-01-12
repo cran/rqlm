@@ -1,3 +1,11 @@
+# rqlm 2.3-1 (2025-01-12)
+
+- Dataset "mch" is added.
+
+# rqlm 2.2-1 (2024-05-24)
+
+- Multiple imputation tools for GLM are added.
+
 # rqlm 2.1-1 (2024-05-22)
 
 - Multiple imputation tools are added.
