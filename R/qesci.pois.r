@@ -100,8 +100,8 @@ qesci.pois <- function(formula, data, x.name=NULL, eform=FALSE, cl=0.95, C0=10^-
 
 	a0 <- 1 - cl		# significant level
 
-	qm1 <- rqlm(formula, data=data, family=poisson, eform=eform, cl=cl, digits=digits)
-	qm2 <- rqlm(formula, data=data, family=poisson, eform=FALSE, cl=cl, digits=999999)
+	qm1 <- rqlm0(formula, data=data, family=poisson, eform=eform, cl=cl, digits=digits)
+	qm2 <- rqlm0(formula, data=data, family=poisson, eform=FALSE, cl=cl, digits=999999)
 
 	wx <- which(rownames(qm2)==x.name)
 

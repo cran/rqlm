@@ -38,4 +38,18 @@ lm1 <- lm(x1 ~ x2 + x3 + x4, data=exdata02)
 coeff(lm1)
 # Linear regression analysis
 
+data(mch)
+
+if(requireNamespace("lme4", quietly = TRUE)) {
+    lmr1 <- lme4::lmer(Y ~ x + (1|SOUM), data=mch)
+    coeff(lmr1)
+}
+# Linear mixed-effects model analysis
+
+if(requireNamespace("lme4", quietly = TRUE)) {
+	gmr1 <- lme4::glmer(y ~ x + (1|SOUM), nAGQ=25, family=binomial, data=mch)
+	coeff(gmr1, eform=TRUE)
+}
+# Logistic mixed-effects model analysis
+# Coefficient estimates are translated to odds ratio scales
 }

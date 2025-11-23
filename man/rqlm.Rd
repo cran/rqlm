@@ -2,7 +2,7 @@
 \alias{rqlm}
 \title{Modified Poisson and least-squares regression analyses for binary outcomes}
 \usage{
-rqlm(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4)
+rqlm(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4, var.method="MBN")
 }
 \arguments{
 \item{formula}{An object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
@@ -16,6 +16,8 @@ rqlm(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4)
 \item{cl}{Confidence level for calculating confidence intervals (default: 0.95)}
 
 \item{digits}{Number of decimal places in the output (default: 4).}
+
+\item{var.method}{Method for estimating standard errors. Standard robust variance estimator (\code{standard}) and Morel-Bokossa-Neerchaal-type corrected estimator (\code{MBN}) are available (default: \code{MBN}).}
 }
 \value{
 Results of the modified Poisson and least-squares regression analyses.
@@ -28,11 +30,17 @@ Results of the modified Poisson and least-squares regression analyses.
 }
 }
 \description{
-Modified Poisson and least-squares regression analyses for binary outcomes are performed. This function is handled by a similar way with \code{lm} or \code{glm}. The model fitting to the binary data can be specified by \code{family}. Also, the resultant coefficients and confidence limits can be transformed to exponential scales by specifying \code{eform}. The standard error estimates are calculated using the standard robust variance estimator by \code{sandwich} package.}
+Modified Poisson and least-squares regression analyses for binary outcomes are performed. This function is handled by a similar way with \code{lm} or \code{glm}. The model fitting to the binary data can be specified by \code{family}. Also, the resultant coefficients and confidence limits can be transformed to exponential scales by specifying \code{eform}. The Morel-Bokossa-Neerchaal-type small-sample corrected estimator is adopted for standard error estimation as the default method.}
 \references{
 Cheung, Y. B. (2007). A modified least-squares regression approach to the estimation of risk difference. \emph{American Journal of Epidemiology} \strong{166}, 1337-1344.
 
-Noma, H. and Gosho, M. (2024). Bootstrap confidence intervals based on quasi-likelihood estimating functions for the modified Poisson and least-squares regressions for binary outcomes. Forthcoming.
+Gosho, M., Ishii, R., Noma, H., and Maruo, K. (2023). A comparison of bias-adjusted generalized estimating equations for sparse binary data in small-sample longitudinal studies. \emph{Statistics in Medicine} \strong{42}, 2711-2727.
+
+Morel, J. G., Bokossa, M., and Neerchal, N. (2003). Small sample correction for the variance of GEE estimators. \emph{Biometrical Journal} \strong{45}, 395-409.
+
+Noma, H. and Gosho, M. (2025). Finite-sample improved confidence intervals based on the estimating equation theory for the modified Poisson and least-squares regressions. \emph{Epidemiologic Methods} \strong{14}, 20240030.
+
+Noma, H., Sunada, H., and Gosho, M. (2025). Quasi-likelihood ratio tests and the Bartlett-type correction for improved inferences of the modified Poisson and least-squares regressions for binary outcomes. \emph{Statistica Neerlandica} \strong{79}, e70012.
 
 White, H. (1982). Maximum likelihood estimation of misspecified models. \emph{Econometrica}, \strong{50}, 1-25.
 

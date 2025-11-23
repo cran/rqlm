@@ -1,3 +1,7 @@
+# rqlm 3.1-1 (2025-11-24)
+
+- Tools for augmented logistic regression are added.
+
 # rqlm 2.3-1 (2025-01-12)
 
 - Dataset "mch" is added.

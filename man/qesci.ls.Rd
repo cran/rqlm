@@ -23,7 +23,7 @@ Results of the modified least-squares analyses are presented. Three objects are 
 \description{
 Recent studies revealed the robust standard error estimates of the modified least-squares regression analysis are generally biased under small or moderate sample settings. To adjust the bias and to provide more accurate confidence intervals, confidence interval and P-value of the test for risk difference by modified least-squares regression are calculated based on the quasi-score test of Noma and Gosho (2024).}
 \references{
-Noma, H. and Gosho, M. (2024). Bootstrap confidence intervals based on quasi-likelihood estimating functions for the modified Poisson and least-squares regressions for binary outcomes. Forthcoming.
+Noma, H. and Gosho, M. (2025). Finite-sample improved confidence intervals based on the estimating equation theory for the modified Poisson and least-squares regressions. \emph{Epidemiologic Methods} \strong{14}, 20240030.
 }
 \examples{
 data(exdata01)
