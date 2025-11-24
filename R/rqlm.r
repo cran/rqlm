@@ -4,7 +4,7 @@ rqlm <- function(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4, 
 	
 	n <- dim(data)[1]
 
-	gm1 <- glm(formula, data=data, family=family, x=TRUE)
+	gm1 <- glm(formula, data=data, family=family, x=TRUE, y=TRUE)
 	
 	cc <- 1 - 0.5*(1 - cl)
 	
@@ -38,30 +38,92 @@ rqlm <- function(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4, 
 	
 	}
 
-	V1 <- sandwich(gm1)
-	se1 <- sqrt(diag(V1))
+	if(var.method=="GST"){
+	
+		Ainv <- vcov(gm1)
+
+		p1 <- dim(Ainv)[1]
+		
+	    X  <- gm1$x
+		pi <- gm1$fitted.values
+		y  <- gm1$y
+		w  <- pi * (1 - pi)
+		
+		BG1 <- BG2 <- matrix(numeric(p1*p1),p1)
+		
+		for(i in 1:n){
+		
+			Ai <- pi[i]*(1-pi[i])*(X[i,]%*%t(X[i,]))
+			Ui <- X[i,]*(y[i]-pi[i])
+				
+			Aiih <- mat_inv_sqrt(Ai)
+			BG1 <- BG1 + Aiih%*%Ui%*%t(Ui)%*%Aiih
+			
+		}
+		
+		BG1 <- BG1/(n-p1)
+		
+		for(i in 1:n){
+		
+			Ai <- pi[i]*(1-pi[i])*(X[i,]%*%t(X[i,]))
+			Aih <- mat_sqrt(Ai)
+			BG2 <- BG2 + Aih%*%BG1%*%Aih
+		
+		}		
+		
+		V2 <- Ainv%*%BG2%*%Ainv
+		se1 <- sqrt(diag(V2))
+	
+	}
+
+	if(var.method=="WL"){
+	
+		Ainv <- vcov(gm1)
+
+		p1 <- dim(Ainv)[1]
+		
+	    X  <- gm1$x
+		pi <- gm1$fitted.values
+		y  <- gm1$y
+		w  <- pi * (1 - pi)
+		
+		BW1 <- BW2 <- matrix(numeric(p1*p1),p1)
+		
+		for(i in 1:n){
+		
+			Ai <- pi[i]*(1-pi[i])*(X[i,]%*%t(X[i,]))
+			Ui <- X[i,]*(y[i]-pi[i])
+				
+			Aih <- mat_sqrt(Ai)
+			Aiih <- mat_inv_sqrt(Ai)
+			Hi <- Aih%*%Ainv%*%Aih
+			Fi <- solve(diag(p1) - Hi)
+				
+			BW1 <- BW1 + Aiih%*%Fi%*%Ui%*%t(Ui)%*%Fi%*%Aiih
+		
+		}
+		
+		BW1 <- BW1/n
+		
+		for(i in 1:n){
+		
+			Ai <- pi[i]*(1-pi[i])*(X[i,]%*%t(X[i,]))
+			Aih <- mat_sqrt(Ai)
+			BW2 <- BW2 + Aih%*%BW1%*%Aih
+		
+		}		
+		
+		V2 <- Ainv%*%BW2%*%Ainv
+		se1 <- sqrt(diag(V2))
+	
+	}
+	
 	cl1 <- coef1 - qnorm(cc)*se1
 	cu1 <- coef1 + qnorm(cc)*se1
 
 	Z <- coef1/se1
 	P <- 2*pnorm(-abs(Z))
 	
-	out <- data.frame(coef1,se1,cl1,cu1,P)
-	colnames(out) <- c("coef","SE","CL","CU","P-value")
-
-	if(eform==TRUE){
-		
-		coef1 <- exp(coef1)
-		cl1 <- exp(cl1)
-		cu1 <- exp(cu1)
-		out <- data.frame(coef1,se1,cl1,cu1,P)
-		colnames(out) <- c("exp(coef)","SE","CL","CU","P-value")
-		
-	}
-
-	# out <- round(out, digits)
-	
-	# return(out)
 
   ## オブジェクトとしてまとめて返す
   res <- list(

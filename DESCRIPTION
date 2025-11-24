@@ -1,8 +1,8 @@
 Package: rqlm
 Type: Package
-Title: Modified Poisson, Logistic and Least-Squares Regressions for
-        Binary Outcome and Their Generalizations
-Version: 3.1-1
+Title: Modified Poisson Regression for Binary Outcome and Related
+        Methods
+Version: 3.2-1
 Date: 2025-11-24
 Authors@R: 
   c( person("Hisashi", "Noma", , "noma@ism.ac.jp", role = c("aut","cre"), comment = c(ORCID = "0000-0002-2520-9949")))
@@ -14,8 +14,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 NeedsCompilation: no
-Packaged: 2025-11-23 15:38:59 UTC; nomah
+Packaged: 2025-11-24 07:47:59 UTC; nomah
 Author: Hisashi Noma [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-2520-9949>)
 Repository: CRAN
-Date/Publication: 2025-11-23 15:50:02 UTC
+Date/Publication: 2025-11-24 08:50:02 UTC

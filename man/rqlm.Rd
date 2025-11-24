@@ -17,7 +17,7 @@ rqlm(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4, var.method="
 
 \item{digits}{Number of decimal places in the output (default: 4).}
 
-\item{var.method}{Method for estimating standard errors. Standard robust variance estimator (\code{standard}) and Morel-Bokossa-Neerchaal-type corrected estimator (\code{MBN}) are available (default: \code{MBN}).}
+\item{var.method}{Method for estimating standard errors. Standard robust variance estimator (\code{standard}), Morel-Bokossa-Neerchaal-type corrected estimator (\code{MBN}), Gosho-Sato-Takeuchi-type corrected estimator (\code{GST}), and Wang-Long-type corrected estimator are available (default: \code{MBN}).}
 }
 \value{
 Results of the modified Poisson and least-squares regression analyses.
@@ -36,11 +36,15 @@ Cheung, Y. B. (2007). A modified least-squares regression approach to the estima
 
 Gosho, M., Ishii, R., Noma, H., and Maruo, K. (2023). A comparison of bias-adjusted generalized estimating equations for sparse binary data in small-sample longitudinal studies. \emph{Statistics in Medicine} \strong{42}, 2711-2727.
 
+Gosho, M., Sato, Y., and Takeuchi, H. (2014). Robust covariance estimator for small-sample adjustment in the generalized estimating equations: a simulation study. \emph{Science Journal of Applied Mathematics and Statistics} \strong{2}, 20-25.
+
 Morel, J. G., Bokossa, M., and Neerchal, N. (2003). Small sample correction for the variance of GEE estimators. \emph{Biometrical Journal} \strong{45}, 395-409.
 
 Noma, H. and Gosho, M. (2025). Finite-sample improved confidence intervals based on the estimating equation theory for the modified Poisson and least-squares regressions. \emph{Epidemiologic Methods} \strong{14}, 20240030.
 
 Noma, H., Sunada, H., and Gosho, M. (2025). Quasi-likelihood ratio tests and the Bartlett-type correction for improved inferences of the modified Poisson and least-squares regressions for binary outcomes. \emph{Statistica Neerlandica} \strong{79}, e70012.
+
+Wang, M., and Long, Q. (2011). Modified robust variance estimator for generalized estimating equations with improved small-sample performance. \emph{Statistics in Medicine} \strong{30}, 1278-1291.
 
 White, H. (1982). Maximum likelihood estimation of misspecified models. \emph{Econometrica}, \strong{50}, 1-25.
 
@@ -52,6 +56,7 @@ data(exdata02)
 rqlm(y ~ x1 + x2 + x3 + x4, data=exdata02, family=poisson, eform=TRUE)
 # Modifed Poisson regression analysis
 # Coefficient estimates are translated to risk ratio scales
+# MBN robust variance estimator is adopted.
 
 rqlm(y ~ x1 + x2 + x3 + x4, data=exdata02, family=gaussian)
 # Modifed least-squares regression analysis
@@ -59,4 +64,14 @@ rqlm(y ~ x1 + x2 + x3 + x4, data=exdata02, family=gaussian)
 rqlm(y ~ x1 + x2 + x3 + x4, data=exdata02, family=gaussian, digits=3)
 # Modifed least-squares regression analysis
 # Number of decimal places can be changed by specifying "digits"
+
+rqlm(y ~ x1 + x2 + x3 + x4, data=exdata02, family=poisson, eform=TRUE, var.method="GST")
+# Modifed Poisson regression analysis
+# Coefficient estimates are translated to risk ratio scales
+# GST robust variance estimator is adopted.
+
+rqlm(y ~ x1 + x2 + x3 + x4, data=exdata02, family=poisson, eform=TRUE, var.method="WL")
+# Modifed Poisson regression analysis
+# Coefficient estimates are translated to risk ratio scales
+# WL robust variance estimator is adopted.
 }

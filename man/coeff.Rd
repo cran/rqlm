@@ -5,7 +5,7 @@
 coeff(gm, eform=FALSE, cl=0.95, digits=4)
 }
 \arguments{
-\item{gm}{An output object of \code{lm} or \code{glm}.}
+\item{gm}{An output object of \code{lm}, \code{glm}, \code{lmer}, or \code{glmer}.}
 
 \item{eform}{A logical value that specify whether the outcome should be transformed by exponential function (default: \code{FALSE})}
 
@@ -24,7 +24,7 @@ Results of inferences of the regression coefficients using the ordinary model va
 }
 }
 \description{
-Confidence intervals and P-values for the linear regression model and the generalized linear model can be calculated using the ordinary model variance estimators. Through simply entering the output objects of \code{lm} or \code{glm}, the inference results are fastly computed. For the linear regression model, the exact confidence intervals and P-values based on the t-distribution are calculated. Also, for the generalized linear model, the Wald-type confidence intervals and P-values based on the asymptotic normal approximation are computed. The resultant coefficients and confidence limits can be transformed to exponential scales by specifying \code{eform}.
+Confidence intervals and P-values for the generalized linear model and generalized linear-mixed-effects model can be calculated using the ordinary model variance estimators. Through simply entering the output objects of \code{lm}, \code{glm}, \code{lmer}, or \code{glmer}, the inference results are fastly computed. For the linear regression model, the exact confidence intervals and P-values based on the t-distribution are calculated. Also, for the generalized linear model, the Wald-type confidence intervals and P-values based on the asymptotic normal approximation are computed. The resultant coefficients and confidence limits can be transformed to exponential scales by specifying \code{eform}.
 }
 \examples{
 data(exdata02)

@@ -1,4 +1,8 @@
-# rqlm 3.1-1 (2025-11-24)
+# rqlm 3.2-1 (2025-11-24)
+
+- Some bugs are fixed. Tools for various robust variance estimators are added.
+
+# rqlm 3.1-1 (2025-11-23)
 
 - Tools for augmented logistic regression are added.
 
