@@ -1,3 +1,7 @@
+# rqlm 4.1-1 (2025-12-06)
+
+- Tools for target trial emulation are added.
+
 # rqlm 3.2-1 (2025-11-24)
 
 - Some bugs are fixed. Tools for various robust variance estimators are added.

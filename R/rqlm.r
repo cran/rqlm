@@ -152,7 +152,7 @@ print.rqlm <- function(x, digits = x$digits, ...) {
   cat("\n")
 
   ## ラベル（CRとかMBNとか）を表示
-  cat("Coefficients with robust variance (", x$var.method, "):\n", sep = "")
+  cat("Coefficient estimates and CIs with robust SE estimator (", x$var.method, "):\n", sep = "")
 
   ## ログスケールの推定値・SE・z・p
   est  <- x$coefficients

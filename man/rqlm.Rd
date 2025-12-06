@@ -2,7 +2,8 @@
 \alias{rqlm}
 \title{Modified Poisson and least-squares regression analyses for binary outcomes}
 \usage{
-rqlm(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4, var.method="MBN")
+rqlm(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4, 
+var.method="MBN")
 }
 \arguments{
 \item{formula}{An object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
@@ -17,7 +18,7 @@ rqlm(formula, data, family=poisson, eform=FALSE, cl=0.95, digits=4, var.method="
 
 \item{digits}{Number of decimal places in the output (default: 4).}
 
-\item{var.method}{Method for estimating standard errors. Standard robust variance estimator (\code{standard}), Morel-Bokossa-Neerchaal-type corrected estimator (\code{MBN}), Gosho-Sato-Takeuchi-type corrected estimator (\code{GST}), and Wang-Long-type corrected estimator are available (default: \code{MBN}).}
+\item{var.method}{Method for estimating standard errors. Standard robust variance estimator (\code{standard}), Morel-Bokossa-Neerchaal-type corrected estimator (\code{MBN}), Gosho-Sato-Takeuchi-type corrected estimator (\code{GST}), and Wang-Long-type corrected estimator (\code{WL}) are available (default: \code{MBN}).}
 }
 \value{
 Results of the modified Poisson and least-squares regression analyses.
