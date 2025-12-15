@@ -1,3 +1,7 @@
+# rqlm 4.2-1 (2025-12-15)
+
+- Tools for IPW analyses are added.
+
 # rqlm 4.1-1 (2025-12-06)
 
 - Tools for target trial emulation are added.
