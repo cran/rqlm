@@ -2,7 +2,8 @@
 \alias{ttemsm}
 \title{Pooled logistic regression for target trial emulation}
 \usage{
-ttemsm(formula, data, id, weight, eform=TRUE, cl=0.95, digits=4, var.method="MBN")
+ttemsm(formula, data, id, weight, family=quasibinomial(link="cloglog"), 
+eform=TRUE, cl=0.95, digits=4, var.method="MBN")
 }
 \arguments{
 \item{formula}{An object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
@@ -12,6 +13,8 @@ ttemsm(formula, data, id, weight, eform=TRUE, cl=0.95, digits=4, var.method="MBN
 \item{id}{id variable for individual participants containing in the \code{data} object.}
 
 \item{weight}{weight variable for individual participants containing in the \code{data} object.}
+
+\item{family}{A description of the error distribution and link function to be used in the model. When the goal is to estimate hazard ratios using a discrete-time Cox model, the complementary log–log (cloglog) link should be used. When the objective is to estimate risk differences or cumulative incidence (e.g., via the g-formula or standardization), the logit link should be used.}
 
 \item{eform}{A logical value that specify whether the outcome should be transformed by exponential function (default: \code{TRUE})}
 
@@ -50,12 +53,21 @@ data(exdata04)
 
 ttemsm( Y ~ A + L1 + time + I(time^2) + trial,
   data    = exdata04, id = ID, weight = w_pp,
+  family = quasibinomial(link="cloglog"),  
   eform   = TRUE, cl = 0.95, var.method="standard")
-# Pooled logistic regression for target trial emulation
+# Pooled logistic regression for target trial emulation with cloglog link
+# For estimating hazard ratios using a discrete-time Cox model
+
+ttemsm( Y ~ A + L1 + time + I(time^2) + trial,
+  data    = exdata04, id = ID, weight = w_pp,
+  family = quasibinomial(link="logit"),
+  eform   = TRUE, cl = 0.95, var.method="standard")
+# Pooled logistic regression for target trial emulation with logit link
+# For estimating RDs or cumulative incidence (e.g., via the g-formula)
 
 ttemsm( Y ~ A + L1 + time + I(time^2) + trial,
   data    = exdata04, id = ID, weight = w_pp,
   eform   = TRUE, cl = 0.95, var.method="MBN")
-# Pooled logistic regression for target trial emulation
+# Pooled logistic regression for target trial emulation with cloglog link
 # Morel-Bokossa-Neerchaal-type corrected SE estimator is used.
 }

@@ -1,4 +1,4 @@
-ttemsm <- function(formula, data, id, weight, eform=TRUE, cl=0.95, digits=4, var.method="MBN"){
+ttemsm <- function(formula, data, id, weight, family=quasibinomial(link="cloglog"), eform=TRUE, cl=0.95, digits=4, var.method="MBN"){
 
   data <- as.data.frame(data)
   
@@ -19,7 +19,7 @@ ttemsm <- function(formula, data, id, weight, eform=TRUE, cl=0.95, digits=4, var
   id_vec <- data[[id_name]]
   data$w_vec  <- data[[wt_name]]
   	
-  gm1 <- glm(formula, data = data, family = quasibinomial("logit"), weights=w_vec)
+  gm1 <- glm(formula, data = data, family = family, weights=w_vec)		# cloglogリンクで、離散Cox回帰（HRを推定したいという場合）。リスク差・累積発生率（g-formula / 標準化）の推定が目的なら、logitリンクに変える。
 
 	cc <- 1 - 0.5*(1 - cl)
 	
