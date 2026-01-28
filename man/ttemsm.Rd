@@ -51,21 +51,21 @@ Morel, J. G., Bokossa, M., and Neerchal, N. (2003). Small sample correction for 
 \examples{
 data(exdata04)
 
-ttemsm( Y ~ A + L1 + time + I(time^2) + trial,
+ttemsm( Y ~ A + L1 + L2 + L3 + time + I(time^2) + trial,
   data    = exdata04, id = ID, weight = w_pp,
   family = quasibinomial(link="cloglog"),  
   eform   = TRUE, cl = 0.95, var.method="standard")
 # Pooled logistic regression for target trial emulation with cloglog link
 # For estimating hazard ratios using a discrete-time Cox model
 
-ttemsm( Y ~ A + L1 + time + I(time^2) + trial,
+ttemsm( Y ~ A + L1 + L2 + L3 + time + I(time^2) + trial,
   data    = exdata04, id = ID, weight = w_pp,
   family = quasibinomial(link="logit"),
   eform   = TRUE, cl = 0.95, var.method="standard")
 # Pooled logistic regression for target trial emulation with logit link
 # For estimating RDs or cumulative incidence (e.g., via the g-formula)
 
-ttemsm( Y ~ A + L1 + time + I(time^2) + trial,
+ttemsm( Y ~ A + L1 + L2 + L3 + time + I(time^2) + trial,
   data    = exdata04, id = ID, weight = w_pp,
   eform   = TRUE, cl = 0.95, var.method="MBN")
 # Pooled logistic regression for target trial emulation with cloglog link

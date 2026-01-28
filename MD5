@@ -1,6 +1,7 @@
-8648e10904ced6a2de23007031a769e8 *DESCRIPTION
-18c4ce75e878c694a5d32a0f4d6612c1 *NAMESPACE
-08c1cc692e4907a368e30b08aa712559 *NEWS.md
+d0425da5905c9983edb557c7e29d78d0 *DESCRIPTION
+ed94849419c9ce327fce98f67bddd507 *NAMESPACE
+3618396c7bd3586d774612480d503fa4 *NEWS.md
+a5087bac621621c3801f91f9f12cc76e *R/SumStat.r
 da3bac7d764e4c43601742962240091a *R/bsci.ls.r
 b424ca31c1c360e1bd90891c66e883d1 *R/bsci.pois.r
 c002f497bc09f8877a863a5fdbb12df8 *R/coeff.r
@@ -19,6 +20,7 @@ c7ef631477df4be8b5fc19c2358f4a7e *R/ttemsm.r
 a2c8cf8cbe6472f72fd74dc09c5533f6 *data/exdata03.RData
 23efa54ecae0d6a8351145fc780bac0d *data/exdata04.RData
 5f914d69f19b64bba221db5d4620dcd2 *data/mch.RData
+323ef1c164c0f8a64016ecc75086ad85 *man/SumStat.Rd
 8145d38659576dbd98a2f3a6520e3900 *man/bsci.ls.Rd
 e4433463ba87895de890d839f31e17c5 *man/bsci.pois.Rd
 88cb8cc55488b6635022d625beba09e5 *man/coeff.Rd
@@ -37,4 +39,4 @@ c26859ebc7d2f75ac60aa85a02611aa2 *man/qlogist.Rd
 7239cb24a3566d0b664c407eaabac879 *man/stabwt.Rd
 f42609943e7f36a9c5c96a084633a17f *man/stabwtlong.Rd
 994d5709df8a2d6abc9767c49f314e0d *man/stabwtmulti.Rd
-5f1ca296a90561b9dfb7dd51f62502ea *man/ttemsm.Rd
+445cd9b3137cfa78875b3b06fccee2b0 *man/ttemsm.Rd

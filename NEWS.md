@@ -1,3 +1,7 @@
+# rqlm 4.3-1 (2026-01-28)
+
+- Some causal inference tools are added.
+
 # rqlm 4.2-2 (2025-12-20)
 
 - Some target trial emulation tools are updated.
