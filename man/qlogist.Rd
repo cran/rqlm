@@ -36,7 +36,7 @@ Gosho, M., Sato, Y., and Takeuchi, H. (2014). Robust covariance estimator for sm
 
 Morel, J. G., Bokossa, M., and Neerchal, N. (2003). Small sample correction for the variance of GEE estimators. \emph{Biometrical Journal} \strong{45}, 395-409.
 
-Noma, H. (2025). Robust variance estimators for risk ratio estimators from logistic regression in cohort and case-cohort studies. Forthcoming.
+Noma, H. (2026). Robust variance estimators for risk ratio estimators from logistic regression in cohort and case-cohort studies. \emph{Statistics and Probability Letters} \strong{234}, 110698.
 
 Noma, H., and Gosho, M. (2025). Logistic mixed-effects model analysis with pseudo-observations for estimating risk ratios in clustered binary data analysis. \emph{Statistics in Medicine} \strong{44}, e70280.
 

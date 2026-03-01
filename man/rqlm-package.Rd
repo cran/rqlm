@@ -10,7 +10,7 @@ Cheung, Y. B. (2007). A modified least-squares regression approach to the estima
 
 Hernan, M. A., Wang, W., and Leaf, D. E. (2022). Target Trial Emulation: A Framework for Causal Inference From Observational Data. \emph{JAMA} \strong{328}, 2446-2447.
 
-Noma, H. (2025). Robust variance estimators for risk ratio estimators from logistic regression in cohort and case-cohort studies. Forthcoming.
+Noma, H. (2026). Robust variance estimators for risk ratio estimators from logistic regression in cohort and case-cohort studies. \emph{Statistics and Probability Letters} \strong{234}, 110698.
 
 Noma, H. and Gosho, M. (2025). Finite-sample improved confidence intervals based on the estimating equation theory for the modified Poisson and least-squares regressions. \emph{Epidemiologic Methods} \strong{14}, 20240030.
 

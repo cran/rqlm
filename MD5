@@ -1,6 +1,6 @@
-d0425da5905c9983edb557c7e29d78d0 *DESCRIPTION
+b56615cf0bda73c35c643bbe73e4d36a *DESCRIPTION
 ed94849419c9ce327fce98f67bddd507 *NAMESPACE
-3618396c7bd3586d774612480d503fa4 *NEWS.md
+2bd157fa0463040cc19515c17c5e9bbf *NEWS.md
 a5087bac621621c3801f91f9f12cc76e *R/SumStat.r
 da3bac7d764e4c43601742962240091a *R/bsci.ls.r
 b424ca31c1c360e1bd90891c66e883d1 *R/bsci.pois.r
@@ -33,8 +33,8 @@ bac8e929957717a6229489ab37c5a718 *man/exdata04.Rd
 6ffad71a40f84b2dcae9920cda47b74f *man/mi_rqlm.Rd
 a49e784169d99900142353cb6e361d3e *man/qesci.ls.Rd
 2fae821f3d614feb74b4e97a8ea6fa03 *man/qesci.pois.Rd
-c26859ebc7d2f75ac60aa85a02611aa2 *man/qlogist.Rd
-0cc13ddd7e47ce5987d254cdd02e1059 *man/rqlm-package.Rd
+9050192c154eb50880529e1aa3df81f6 *man/qlogist.Rd
+4d11799ac7e1412600fcacc81da80c1d *man/rqlm-package.Rd
 360567bffc6c14339683f001d4b58629 *man/rqlm.Rd
 7239cb24a3566d0b664c407eaabac879 *man/stabwt.Rd
 f42609943e7f36a9c5c96a084633a17f *man/stabwtlong.Rd

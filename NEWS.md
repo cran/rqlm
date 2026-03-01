@@ -1,3 +1,7 @@
+# rqlm 4.3-2 (2026-03-01)
+
+- Reference information is updated.
+
 # rqlm 4.3-1 (2026-01-28)
 
 - Some causal inference tools are added.
