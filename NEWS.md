@@ -1,3 +1,7 @@
+# rqlm 4.4-1 (2026-07-13)
+
+- Unbiased standard error estimators for modified least-squares regression are added.
+
 # rqlm 4.3-2 (2026-03-01)
 
 - Reference information is updated.

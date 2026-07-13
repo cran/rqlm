@@ -16,6 +16,8 @@ Noma, H. and Gosho, M. (2025). Finite-sample improved confidence intervals based
 
 Noma, H. and Gosho, M. (2025). Logistic mixed-effects model analysis with pseudo-observations for estimating risk ratios in clustered binary data analysis. \emph{Statistics in Medicine} \strong{44}, e70280.
 
+Noma, H. and Kitano, T. (2026). Finite-sample unbiased covariance estimation for modified least-squares regression with binary outcomes. In Preparation.
+
 Noma, H., Sunada, H., and Gosho, M. (2025). Quasi-likelihood ratio tests and the Bartlett-type correction for improved inferences of the modified Poisson and least-squares regressions for binary outcomes. \emph{Statistica Neerlandica} \strong{79}, e70012.
 
 Shiiba, H. and Noma, H. (2025). Confidence intervals of risk ratios for the augmented logistic regression with pseudo-observations. \emph{Stats} \strong{8}, 83.

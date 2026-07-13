@@ -2,8 +2,8 @@ Package: rqlm
 Type: Package
 Title: Modified Poisson Regression for Binary Outcome and Related
         Methods
-Version: 4.3-2
-Date: 2026-03-01
+Version: 4.4-1
+Date: 2026-07-13
 Authors@R: 
   c( person("Hisashi", "Noma", , "noma@ism.ac.jp", role = c("aut","cre"), comment = c(ORCID = "0000-0002-2520-9949")))
 Maintainer: Hisashi Noma <noma@ism.ac.jp>
@@ -14,8 +14,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 NeedsCompilation: no
-Packaged: 2026-03-01 02:39:31 UTC; nomah
+Packaged: 2026-07-13 03:59:02 UTC; nomah
 Author: Hisashi Noma [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-2520-9949>)
 Repository: CRAN
-Date/Publication: 2026-03-01 03:30:02 UTC
+Date/Publication: 2026-07-13 05:50:02 UTC
