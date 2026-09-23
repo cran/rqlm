@@ -1,3 +1,9 @@
+# rqlm 4.5-1 (2026-09-23)
+
+- Added generic coef(), vcov(), and family() methods for improved interoperability with other R packages. 
+- Added cluster-robust ID support to rqlm() and qlogist(). 
+- The ttemsm() function now returns the full covariance matrix and fitted glm object, and uses uniform weights when weight is omitted.
+
 # rqlm 4.4-1 (2026-07-13)
 
 - Unbiased standard error estimators for modified least-squares regression are added.

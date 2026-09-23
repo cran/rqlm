@@ -2,7 +2,7 @@
 \alias{ttemsm}
 \title{Pooled logistic regression for target trial emulation}
 \usage{
-ttemsm(formula, data, id, weight, family=quasibinomial(link="cloglog"), 
+ttemsm(formula, data, id, weight=NULL, family=quasibinomial(link="cloglog"), 
 eform=TRUE, cl=0.95, digits=4, var.method="MBN")
 }
 \arguments{
@@ -10,9 +10,9 @@ eform=TRUE, cl=0.95, digits=4, var.method="MBN")
 
 \item{data}{A data frame, list or environment (or object coercible by as.data.frame to a data frame) containing the variables in the model.}
 
-\item{id}{id variable for individual participants containing in the \code{data} object.}
+\item{id}{Column name in \code{data} identifying individual participants, supplied without quotes or as one character string. Missing IDs in the analysis sample are not allowed.}
 
-\item{weight}{weight variable for individual participants containing in the \code{data} object.}
+\item{weight}{Column name in \code{data} containing the analysis weights, supplied without quotes or as one character string. The default \code{NULL} uses uniform weights of one.}
 
 \item{family}{A description of the error distribution and link function to be used in the model. When the goal is to estimate hazard ratios using a discrete-time Cox model, the complementary log–log (cloglog) link should be used. When the objective is to estimate risk differences or cumulative incidence (e.g., via the g-formula or standardization), the logit link should be used.}
 
@@ -25,17 +25,39 @@ eform=TRUE, cl=0.95, digits=4, var.method="MBN")
 \item{var.method}{Method for estimating standard errors. Standard cluster-robust variance estimator (\code{standard}) and Morel-Bokossa-Neerchaal-type corrected cluster-robust estimator (\code{MBN}) are available (default: \code{MBN}).}
 }
 \value{
-Results of the pooled logistic regression analysis.
+An object of class \code{"ttemsm"} containing the following components.
 \itemize{
-\item \code{coef}: Coefficient estimates; transformed to the exponential scale if \code{eform=TRUE}.
-\item \code{SE}: Cluster-robust standard error estimates for \code{coef}.
-\item \code{CL}: Lower limits of confidence intervals.
-\item \code{CU}: Upper limits of confidence intervals.
-\item \code{P-value}: P-values for the coefficient tests.
+\item \code{call}: The matched function call.
+\item \code{formula}: The model formula.
+\item \code{coefficients}: Coefficient estimates on the model scale, irrespective of \code{eform}.
+\item \code{se}: Cluster-robust standard errors on the coefficient scale.
+\item \code{cl}, \code{cu}: Lower and upper confidence limits on the coefficient scale.
+\item \code{z}, \code{p}: Wald statistics and two-sided P-values.
+\item \code{eform}, \code{cl.level}, \code{digits}, \code{var.method}: The corresponding analysis and display settings.
+\item \code{vcov}: The full estimated covariance matrix.
+\item \code{model}: The fitted \code{glm} object.
+\item \code{n}: The number of analysis rows after missing-value handling.
+\item \code{n.clusters}: The number of independent participants.
 }
 }
 \description{
 This function implements pooled logistic regression for use in target trial emulation. Before running the function, the user must prepare an analysis dataset by stacking the sequential‐trial datasets in long format. If inverse probability weights (such as IPCW) are required, the corresponding \code{weight} variable should be included in the dataset in advance. The regression model is specified through the \code{formula} argument, and the individual identifier must be provided via the \code{id} argument, so that cluster‐robust standard errors are computed across repeated trials for each individual. When a \code{weight} variable is specified through weights, the function performs inverse probability weighting. The output includes point estimates of the hazard ratio, corresponding confidence intervals, and P-values.
+}
+\details{
+The methods \code{coef}, \code{vcov}, and \code{family} are available;
+see \code{\link{rqlm-methods}}. The full covariance matrix can be used
+for contrasts involving several coefficients. Predictions from
+\code{model} are available through \code{predict}, but its default
+prediction standard errors are model-based, not based on the outer
+object's robust covariance. Supplied weights are treated as fixed.
+At least two participants are needed for \code{standard}; \code{MBN}
+requires more independent participants than model parameters. The
+existing MBN formula, including the cluster-count adjustment in
+\code{sandwich::vcovCL} before the additional MBN factors, is retained.
+
+This function is retained for compatibility. Further target trial
+emulation development is provided in the \pkg{TTE} package, including
+\code{TTE::discsurvreg}; its arguments and defaults are not identical.
 }
 \references{
 Gosho, M., Ishii, R., Noma, H., and Maruo, K. (2023). A comparison of bias-adjusted generalized estimating equations for sparse binary data in small-sample longitudinal studies. \emph{Statistics in Medicine} \strong{42}, 2711-2727.

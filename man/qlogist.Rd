@@ -2,7 +2,7 @@
 \alias{qlogist}
 \title{Augmented (modified) logistic regression analyses for estimating risk ratio}
 \usage{
-qlogist(formula, data, eform=TRUE, cl=0.95, digits=4, var.method="MBN")
+qlogist(formula, data, eform=TRUE, cl=0.95, digits=4, var.method="MBN", id=NULL)
 }
 \arguments{
 \item{formula}{An object of class "formula" (or one that can be coerced to that class): a symbolic description of the model to be fitted.}
@@ -16,19 +16,52 @@ qlogist(formula, data, eform=TRUE, cl=0.95, digits=4, var.method="MBN")
 \item{digits}{Number of decimal places in the output (default: 4).}
 
 \item{var.method}{Method for estimating standard errors. Standard robust variance estimator (\code{standard}), Morel-Bokossa-Neerchaal-type corrected estimator (\code{MBN}), Gosho-Sato-Takeuchi-type corrected estimator (\code{GST}), and Wang-Long-type corrected estimator (\code{WL}) are available (default: \code{MBN}).}
+\item{id}{Optional column name in \code{data}, supplied without quotes or as one character string, identifying independent clusters. With \code{NULL}, each original observation and its pseudo-observation form one cluster. With an external ID, all original and pseudo-observations with that ID are grouped together. Only \code{standard} and \code{MBN} support an external ID. Missing IDs in the analysis sample are not allowed.}
 }
 \value{
-Results of the augmented (modified) logistic regression analysis.
+An object of class \code{"rqlm"} containing the following components.
 \itemize{
-\item \code{coef}: Coefficient estimates; transformed to the exponential scale if \code{eform=TRUE}.
-\item \code{SE}: Robust standard error estimates for \code{coef}.
-\item \code{CL}: Lower limits of confidence intervals.
-\item \code{CU}: Upper limits of confidence intervals.
-\item \code{P-value}: P-values for the coefficient tests.
+\item \code{call}: The matched function call.
+\item \code{formula}: The original model formula.
+\item \code{coefficients}: Coefficient estimates on the log-risk scale, irrespective of \code{eform}.
+\item \code{se}: Robust standard errors on the coefficient scale.
+\item \code{cl}, \code{cu}: Lower and upper confidence limits on the coefficient scale.
+\item \code{z}, \code{p}: Wald statistics and two-sided P-values.
+\item \code{eform}, \code{cl.level}, \code{digits}, \code{var.method}: The corresponding analysis and display settings.
+\item \code{vcov}: The full estimated covariance matrix, with coefficient names.
+\item \code{model}: The fitted augmented-data \code{glm} object.
+\item \code{n}: The number of original observations in the analysis sample.
+\item \code{n.clusters}: The number of independent clusters.
 }
 }
 \description{
 Logistic regression with augmented pseudo-observations for estimating risk ratios is performed. This function is handled by a similar way with \code{lm} or \code{glm}. Also, the resultant coefficients and confidence limits can be transformed to exponential scales by specifying \code{eform}. The Morel-Bokossa-Neerchaal-type small-sample corrected estimator is adopted for standard error estimation as the default method.}
+\details{
+The model frame and design matrix are constructed from the original
+observations before augmentation. This keeps transformations and matrix
+predictors aligned with their original observations and avoids overwriting
+user columns named \code{id} or \code{d}. Missing model values are handled
+by \code{model.frame} using the current \code{na.action} option; IDs are
+then aligned with the retained rows. Adaptive transformations such as
+\code{poly} or splines are therefore defined before, rather than after,
+augmentation.
+
+At least two independent clusters are needed for \code{standard}.
+For \code{MBN}, their number must exceed the number of model parameters.
+The existing MBN formula, including the cluster-count adjustment in
+\code{sandwich::vcovCL} before the additional MBN factors, is retained.
+The \code{GST} and \code{WL} calculations are restricted to
+\code{id = NULL}.
+
+The methods \code{coef}, \code{vcov}, and \code{family} are available;
+see \code{\link{rqlm-methods}}. The family returned by \code{family}
+is the binomial-logit family of the augmented-data working model, not a
+logit model for the original outcome. The coefficients represent log
+risks in the original cohort. When using \code{dlnm::crosspred}, specify
+\code{model.link = "log"} explicitly and use the outer object to retain
+the robust covariance. The response predictions from \code{model}
+refer to the augmented outcome; they are not the original risks.
+}
 \references{
 Diaz-Quijano, F. A. (2012). A simple method for estimating relative risk using logistic regression. \emph{BMC Medical Research Methodology} \strong{12}, 14.
 

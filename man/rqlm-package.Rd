@@ -10,13 +10,13 @@ Cheung, Y. B. (2007). A modified least-squares regression approach to the estima
 
 Hernan, M. A., Wang, W., and Leaf, D. E. (2022). Target Trial Emulation: A Framework for Causal Inference From Observational Data. \emph{JAMA} \strong{328}, 2446-2447.
 
+Kitano, T. and Noma, H. (2026). Exact unbiased covariance estimation for modified least-squares regression with binary outcomes. In Preparation.
+
 Noma, H. (2026). Robust variance estimators for risk ratio estimators from logistic regression in cohort and case-cohort studies. \emph{Statistics and Probability Letters} \strong{234}, 110698.
 
 Noma, H. and Gosho, M. (2025). Finite-sample improved confidence intervals based on the estimating equation theory for the modified Poisson and least-squares regressions. \emph{Epidemiologic Methods} \strong{14}, 20240030.
 
 Noma, H. and Gosho, M. (2025). Logistic mixed-effects model analysis with pseudo-observations for estimating risk ratios in clustered binary data analysis. \emph{Statistics in Medicine} \strong{44}, e70280.
-
-Noma, H. and Kitano, T. (2026). Finite-sample unbiased covariance estimation for modified least-squares regression with binary outcomes. In Preparation.
 
 Noma, H., Sunada, H., and Gosho, M. (2025). Quasi-likelihood ratio tests and the Bartlett-type correction for improved inferences of the modified Poisson and least-squares regressions for binary outcomes. \emph{Statistica Neerlandica} \strong{79}, e70012.
 

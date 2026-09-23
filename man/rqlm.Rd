@@ -3,7 +3,7 @@
 \title{Modified Poisson and Least-Squares Regression Analyses for Binary Outcomes}
 \usage{
 rqlm(formula, data, family = poisson, eform = FALSE, cl = 0.95,
-     digits = 4, var.method = "MBN")
+     digits = 4, var.method = "MBN", id = NULL)
 }
 \arguments{
 \item{formula}{
@@ -59,6 +59,11 @@ The \code{"HAD"}, \code{"HAD0"}, and \code{"HAD025"} options are
 available only with a Gaussian family and identity link. The default is
 \code{"MBN"}.
 }
+\item{id}{Optional column name in \code{data}, supplied without quotes or as
+one character string, identifying independent clusters. The default
+\code{NULL} retains the independent-observation analysis. With \code{id}
+supplied, only \code{"standard"} and \code{"MBN"} are available. Missing
+IDs in the analysis sample are not allowed.}
 }
 \value{
 An object of class \code{"rqlm"}, containing the following components:
@@ -78,6 +83,7 @@ An object of class \code{"rqlm"}, containing the following components:
 \item{model}{The fitted \code{glm} object.}
 \item{n}{The number of observations in the analysis sample after
 missing-value handling.}
+\item{n.clusters}{The number of independent clusters; equal to \code{n} when \code{id = NULL}.}
 \item{vhat.had}{
 For a Hadamard method, the observation-level variance estimates after
 any requested truncation; otherwise \code{NULL}.
@@ -112,6 +118,20 @@ and confidence limits. The Morel--Bokossa--Neerchal-type small-sample
 corrected estimator is used by default.
 }
 \details{
+With \code{id} supplied, scores are aggregated within the specified
+clusters. At least two clusters are needed for \code{"standard"};
+\code{"MBN"} requires more clusters than model parameters. The cluster
+covariance convention follows \code{ttemsm}; the existing MBN correction
+formula is retained. In particular, the cluster-count adjustment in
+\code{sandwich::vcovCL} is retained before the additional MBN factors.
+With \code{id = NULL}, the existing covariance calculations are unchanged.
+The \code{"GST"}, \code{"WL"}, and Hadamard options are not extended to
+general clusters.
+
+The methods \code{coef}, \code{vcov}, and \code{family} are available;
+see \code{\link{rqlm-methods}}. Coefficients and their covariance matrix
+are returned on the model scale, irrespective of \code{eform}.
+
 The Hadamard methods are implemented for modified least-squares
 regression fitted using a Gaussian family with an identity link.
 
@@ -166,6 +186,10 @@ generalized estimating equations: a simulation study.
 \emph{Science Journal of Applied Mathematics and Statistics}
 \strong{2}, 20--25.
 
+Kitano, T. and Noma, H. (2026).
+Exact unbiased covariance estimation for modified least-squares regression with binary outcomes.
+In Preparation.
+
 Morel, J. G., Bokossa, M., and Neerchal, N. (2003).
 Small sample correction for the variance of GEE estimators.
 \emph{Biometrical Journal} \strong{45}, 395--409.
@@ -174,10 +198,6 @@ Noma, H. and Gosho, M. (2025).
 Finite-sample improved confidence intervals based on the estimating
 equation theory for the modified Poisson and least-squares regressions.
 \emph{Epidemiologic Methods} \strong{14}, 20240030.
-
-Noma, H. and Kitano, T. (2026).
-Finite-sample unbiased covariance estimation for modified least-squares regression with binary outcomes.
-In Preparation.
 
 Noma, H., Sunada, H., and Gosho, M. (2025).
 Quasi-likelihood ratio tests and the Bartlett-type correction for

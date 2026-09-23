@@ -1,5 +1,5 @@
 rqlm <- function(formula, data, family = poisson, eform = FALSE,
-                 cl = 0.95, digits = 4, var.method = "MBN") {
+                 cl = 0.95, digits = 4, var.method = "MBN", id = NULL) {
 
   call <- match.call()
 
@@ -19,6 +19,15 @@ rqlm <- function(formula, data, family = poisson, eform = FALSE,
 
   ## Use the actual analysis sample after handling missing values.
   n <- nrow(gm1$x)
+  id_vec <- .rqlm_id(data, substitute(id), gm1$na.action, n)
+  K <- if (is.null(id_vec)) n else length(unique(id_vec))
+
+  if (!is.null(id_vec)) {
+    if (!(var.method %in% c("standard", "MBN")))
+      stop("With id supplied, var.method must be \"standard\" or \"MBN\".")
+    if (K < 2L)
+      stop("At least two independent clusters are required.")
+  }
 
   cc <- 1 - 0.5 * (1 - cl)
 
@@ -36,7 +45,8 @@ rqlm <- function(formula, data, family = poisson, eform = FALSE,
 
   if (var.method == "standard") {
 
-    V1 <- sandwich::sandwich(gm1)
+    V1 <- if (is.null(id_vec)) sandwich::sandwich(gm1) else
+      sandwich::vcovCL(gm1, cluster = id_vec)
     Vout <- V1
     se1 <- sqrt(diag(V1))
 
@@ -44,7 +54,8 @@ rqlm <- function(formula, data, family = poisson, eform = FALSE,
 
   if (var.method == "MBN") {
 
-    V1 <- sandwich::sandwich(gm1)
+    V1 <- if (is.null(id_vec)) sandwich::sandwich(gm1) else
+      sandwich::vcovCL(gm1, cluster = id_vec)
     Ainv <- vcov(gm1)
     A <- solve(Ainv)
 
@@ -55,11 +66,15 @@ rqlm <- function(formula, data, family = poisson, eform = FALSE,
     }
 
     Q1 <- (n - 1) / (n - p1)
-    Q2 <- n / (n - 1)
+    if (K <= p1) {
+      stop("The number of independent clusters must be larger than the number of model parameters for var.method = \"MBN\".")
+    }
+
+    Q2 <- K / (K - 1)
 
     Q3 <- sum(diag(V1 %*% A)) / p1
 
-    delta <- min(0.5, p1 / (n - p1))
+    delta <- min(0.5, p1 / (K - p1))
     gamma <- max(1, Q3)
 
     V2 <- Q1 * Q2 * V1 + delta * gamma * Ainv
@@ -325,6 +340,7 @@ rqlm <- function(formula, data, family = poisson, eform = FALSE,
     vcov = Vout,
     model = gm1,
     n = n,
+    n.clusters = K,
     vhat.had = vhat.had,
     vhat.had.raw = vhat.had.raw,
     kappa.had = kappa.had,
